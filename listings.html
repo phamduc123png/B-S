@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BẤT ĐỘNG SẢN ĐỨC THỊNH PHÁT - Trang Chủ</title>
+    <title>Danh Sách Bất Động Sản - BẤT ĐỘNG SẢN ĐỨC THỊNH PHÁT</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -16,8 +16,8 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active">TRANG CHỦ</a></li>
-                    <li><a href="listings.html">DANH SÁCH</a></li>
+                    <li><a href="index.html">TRANG CHỦ</a></li>
+                    <li><a href="listings.html" class="active">DANH SÁCH</a></li>
                     <li><a href="blog.html">TIN TỨC</a></li>
                     <li><a href="contact.html">LIÊN HỆ</a></li>
                     <li><a href="account.html" id="account-link">TÀI KHOẢN</a></li>
@@ -26,19 +26,22 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>TÌM KIẾM NGÔI NHÀ MƠ ƯỚC CỦA BẠN</h2>
-            <p>Chúng tôi cung cấp những bất động sản tốt nhất với giá cả hợp lý</p>
-            <a href="listings.html" class="btn-primary">XEM DANH SÁCH</a>
-        </div>
-    </section>
+    <!-- Breadcrumb -->
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li>Danh sách bất động sản</li>
+            </ol>
+        </nav>
+    </div>
 
-    <!-- Search Section -->
-    <section class="search-section">
-        <div class="container">
-            <h2>TÌM KIẾM BẤT ĐỘNG SẢN</h2>
+    <!-- Main Content -->
+    <main class="container listings-page">
+        <h2>DANH SÁCH BẤT ĐỘNG SẢN</h2>
+        
+        <div class="filter-sidebar">
+            <h3>BỘ LỌC TÌM KIẾM</h3>
             <form id="searchForm">
                 <div class="filter-group">
                     <label for="location">VỊ TRÍ:</label>
@@ -75,66 +78,11 @@
                 <button type="submit">TÌM KIẾM</button>
             </form>
         </div>
-    </section>
 
-    <!-- Featured Properties -->
-    <section class="featured-properties">
-        <div class="container">
-            <h2>BẤT ĐỘNG SẢN NỔI BẬT</h2>
-            <div class="property-grid" id="featuredProperties">
-                <!-- Properties will be loaded here by JavaScript -->
-            </div>
+        <div id="propertyList" class="property-grid">
+            <!-- Properties will be loaded here by JavaScript -->
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <h2>DỊCH VỤ CỦA CHÚNG TÔI</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-home fa-3x"></i>
-                    <h3>MUA BÁN</h3>
-                    <p>Tìm kiếm và mua bất động sản phù hợp với nhu cầu của bạn</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-key fa-3x"></i>
-                    <h3>CHO THUÊ</h3>
-                    <p>Cho thuê bất động sản với giá cả cạnh tranh</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-chart-line fa-3x"></i>
-                    <h3>ĐẦU TƯ</h3>
-                    <p>Tư vấn đầu tư bất động sản sinh lời cao</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <h2>KHÁCH HÀNG NÓI GÌ</h2>
-            <div class="testimonial-slider">
-                <div class="testimonial">
-                    <p>"Dịch vụ tuyệt vời! Tôi đã tìm được ngôi nhà mơ ước của mình nhờ công ty."</p>
-                    <h4>- Nguyễn Văn A</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <div class="container">
-            <h2>ĐĂNG KÝ NHẬN TIN</h2>
-            <p>Nhận thông tin mới nhất về bất động sản và các ưu đãi đặc biệt</p>
-            <form id="newsletterForm">
-                <input type="email" placeholder="Nhập email của bạn" required>
-                <button type="submit">ĐĂNG KÝ</button>
-            </form>
-        </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -167,5 +115,11 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Load all properties on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProperties(properties);
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký - BẤT ĐỘNG SẢN ĐỨC THỊNH PHÁT</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>BẤT ĐỘNG SẢN ĐỨC THỊNH PHÁT</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">TRANG CHỦ</a></li>
+                    <li><a href="listings.html">DANH SÁCH</a></li>
+                    <li><a href="blog.html">TIN TỨC</a></li>
+                    <li><a href="contact.html">LIÊN HỆ</a></li>
+                    <li><a href="account.html" id="account-link">TÀI KHOẢN</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="register-container">
+            <div class="register-form">
+                <h2>ĐĂNG KÝ TÀI KHOẢN</h2>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Họ và tên</label>
+                        <input type="text" id="registerName" name="registerName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" name="registerEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerPhone">Số điện thoại</label>
+                        <input type="tel" id="registerPhone" name="registerPhone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerPassword">Mật khẩu</label>
+                        <input type="password" id="registerPassword" name="registerPassword" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Xác nhận mật khẩu</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="termsAgreement" required> 
+                            Tôi đồng ý với <a href="terms.html">Điều khoản sử dụng</a> và <a href="privacy.html">Chính sách bảo mật</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">ĐĂNG KÝ</button>
+                </form>
+                
+                <div class="login-option">
+                    <p>Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BẤT ĐỘNG SẢN ĐỨC THỊNH PHÁT</h3>
+                    <p>Cung cấp các giải pháp bất động sản chuyên nghiệp và đáng tin cậy.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>LIÊN KẾT</h4>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="listings.html">Danh sách</a></li>
+                        <li><a href="blog.html">Tin tức</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>LIÊN HỆ</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận XYZ, TP HCM</p>
+                    <p><i class="fas fa-phone"></i> +84 123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@ducthinhphat.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BẤT ĐỘNG SẢN ĐỨC THỊNH PHÁT. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const registerForm = document.getElementById('registerForm');
+            if (registerForm) {
+                registerForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    // In a real app, this would send to server
+                    alert('Đăng ký thành công! Vui lòng kiểm tra email để xác nhận.');
+                    window.location.href = 'login.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
