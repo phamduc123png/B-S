@@ -2,14 +2,14 @@
 const properties = [
     {
         id: 1,
-        title: "Modern Family House",
-        location: "San Francisco, CA",
-        price: 1200000,
+        title: "CÓ SỔ ĐỎ HỒNG",
+        location: "TP HCM City, Vietnam",
+        price: 1000000000,
         bedrooms: 4,
-        bathrooms: 3,
         type: "house",
-        image: "https://via.placeholder.com/400x300?text=House+1",
-        description: "A beautiful modern family house in a great neighborhood.",
+        bathrooms: 3,
+        image: "1000013320.jpg",
+        description: "CÓ ĐẦY ĐỦ PHẤP LÝ, CÓ SỔ ĐỎ HỒNG, CÓ GIẤY TỜ PHÁP LÝ RÕ RÀNG, CÓ THỂ VAY NGÂN HÀNG",
         region: "West"
     },
     {
@@ -20,7 +20,7 @@ const properties = [
         bedrooms: 2,
         bathrooms: 2,
         type: "apartment",
-        image: "https://via.placeholder.com/400x300?text=Apartment+1",
+        image: "1000013322.jpg",
         description: "Conveniently located apartment in the heart of the city.",
         region: "East"
     },
@@ -32,7 +32,7 @@ const properties = [
         bedrooms: 3,
         bathrooms: 2,
         type: "condo",
-        image: "https://via.placeholder.com/400x300?text=Condo+1",
+        image: "1000013327.jpg",
         description: "A cozy condo with ocean views.",
         region: "South"
     },
@@ -44,7 +44,7 @@ const properties = [
         bedrooms: 3,
         bathrooms: 2,
         type: "townhouse",
-        image: "https://via.placeholder.com/400x300?text=Townhouse+1",
+        image: "1000013328.jpg",
         description: "Spacious townhouse in a quiet suburb.",
         region: "Central"
     }
@@ -141,6 +141,7 @@ function showPropertyDetails(property) {
     propertiesViewed++;
     updateAnalytics();
 
+    // Create modal elements
     const modal = document.createElement('div');
     modal.className = 'modal';
 
@@ -154,44 +155,68 @@ function showPropertyDetails(property) {
         document.body.removeChild(modal);
     });
 
+    // Property details elements
     const title = document.createElement('h2');
     title.textContent = property.title;
+    title.style.marginTop = '0';
 
     const img = document.createElement('img');
     img.src = property.image;
     img.alt = property.title;
     img.style.width = '100%';
     img.style.borderRadius = '8px';
+    img.style.marginBottom = '15px';
 
     const description = document.createElement('p');
     description.textContent = property.description;
+    description.style.marginBottom = '15px';
+
+    // Create a container for property details
+    const detailsContainer = document.createElement('div');
+    detailsContainer.style.marginBottom = '15px';
 
     const price = document.createElement('p');
     price.innerHTML = `<strong>Price:</strong> $${property.price.toLocaleString()}`;
+    price.style.margin = '5px 0';
 
     const location = document.createElement('p');
     location.innerHTML = `<strong>Location:</strong> ${property.location}`;
+    location.style.margin = '5px 0';
 
     const bedrooms = document.createElement('p');
     bedrooms.innerHTML = `<strong>Bedrooms:</strong> ${property.bedrooms}`;
+    bedrooms.style.margin = '5px 0';
 
     const bathrooms = document.createElement('p');
     bathrooms.innerHTML = `<strong>Bathrooms:</strong> ${property.bathrooms}`;
+    bathrooms.style.margin = '5px 0';
+
+    const type = document.createElement('p');
+    type.innerHTML = `<strong>Property Type:</strong> ${property.type.charAt(0).toUpperCase() + property.type.slice(1)}`;
+    type.style.margin = '5px 0';
 
     // Financial calculation example: mortgage estimate
     const mortgage = calculateMortgage(property.price, 20, 3.5, 30);
     const mortgageP = document.createElement('p');
     mortgageP.innerHTML = `<strong>Estimated Monthly Mortgage:</strong> $${mortgage.toFixed(2)}`;
+    mortgageP.style.margin = '5px 0';
+    mortgageP.style.fontWeight = 'bold';
 
+    // Assemble the modal
     modalContent.appendChild(closeBtn);
     modalContent.appendChild(title);
     modalContent.appendChild(img);
     modalContent.appendChild(description);
-    modalContent.appendChild(price);
-    modalContent.appendChild(location);
-    modalContent.appendChild(bedrooms);
-    modalContent.appendChild(bathrooms);
-    modalContent.appendChild(mortgageP);
+    
+    // Add details to container
+    detailsContainer.appendChild(price);
+    detailsContainer.appendChild(location);
+    detailsContainer.appendChild(bedrooms);
+    detailsContainer.appendChild(bathrooms);
+    detailsContainer.appendChild(type);
+    detailsContainer.appendChild(mortgageP);
+    
+    modalContent.appendChild(detailsContainer);
 
     modal.appendChild(modalContent);
     document.body.appendChild(modal);
